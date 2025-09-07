@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>老王研究所 | 官方网站</title>
+  <meta name="description" content="老王研究所官网：ImageJ 宏代码、教程、软件技巧、会员服务与互动栏目。" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/images/about/avatar.jpg" alt="老王头像" class="brand-avatar" />
+        <span class="brand-name">老王研究所</span>
+      </div>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="code.html">代码中心</a>
+        <a href="#" class="gated-link" data-href="tutorials.html">教程中心</a>
+        <a href="#" class="gated-link" data-href="software.html">软件中心</a>
+        <a href="#" class="gated-link" data-href="vip.html">会员专区</a>
+        <a href="payment.html">付款说明</a>
+        <a href="about.html">关于老王</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    
+
+    <!-- 英雄区 -->
+    <section class="hero">
+      <h1>老王研究所 · ImageJ 宏代码与科研工作流</h1>
+      <p>高效稳定 · 可复现 · 批处理省时省心</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="code.html">查看代码中心</a>
+        <button class="btn gated-link" type="button">联系授权</button>
+      </div>
+    </section>
+
+    <!-- 滚筒图 / 轮播 -->
+    <section class="section">
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="slide"><img src="assets/images/carousel/slide1.jpg" alt="WB 自动分析" style="max-width:100%;height:auto;"></div>
+          <div class="slide"><img src="assets/images/carousel/slide2.jpg" alt="细胞划痕" style="max-width:100%;height:auto;"></div>
+          <div class="slide"><img src="assets/images/carousel/slide3.jpg" alt="免疫荧光共定位" style="max-width:100%;height:auto;"></div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- 代码中心 -->
+    <section id="code" class="section">
+      <h2>代码中心 · ImageJ 宏代码合集</h2>
+      <p class="muted">包含划痕分析、荧光分析、WB 等。每个条目附版本信息与说明文档。</p>
+      <div id="code-list" class="cards"></div>
+    </section>
+
+    
+    <!-- 软件中心（首页概览，入口上锁） -->
+    <section class="section">
+      <h2>软件中心（已上锁）</h2>
+      <p class="muted">科研相关软件介绍与操作技巧（ImageJ、FlowJo、ImageLab、Excel 等）。</p>
+      <button class="btn primary gated-link" type="button">前往软件中心</button>
+    </section>
+
+    <!-- 付款说明 -->
+    <section id="payment" class="section">
+      <h2>付款说明</h2>
+      <ul class="meta-list">
+        <li>收款方式：微信 / 支付宝（下单后发送截图核验）</li>
+        <li>入群费用及权益：获取专属群答疑、版本更新通知、资料下载权限</li>
+        <li>小红书店铺：<a href="https://xhslink.com/m/AJSll3X10hN" target="_blank" rel="noopener">点击进入</a></li>
+      </ul>
+    </section>
+
+    
+  </main>
+
+  <!-- 授权提示 Modal -->
+  <div id="gate-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-action="close"></div>
+    <div class="modal-dialog" role="document">
+      <button class="modal-close" title="关闭" aria-label="关闭" data-action="close">×</button>
+      <h3>访问受限</h3>
+      <p>该内容需要授权/会员权限。请联系作者授权。</p>
+      <ul class="meta-list">
+        <li>微信：imagej_sci</li>
+      </ul>
+      <form class="auth-form" onsubmit="return false;">
+        <div class="form-row">
+          <label>机器码（示例：12345-67890）</label>
+          <input id="auth-mc" name="machine" type="text" placeholder="请输入机器码" />
+        </div>
+        <div class="form-row">
+          <label>授权码</label>
+          <input id="auth-lic" name="license" type="text" placeholder="请输入授权码" />
+        </div>
+        <div class="form-row">
+          <button id="auth-verify" class="btn primary" type="button">校验并授权</button>
+        </div>
+        
+      </form>
+      <div class="modal-actions">
+        <a class="btn primary" href="#contact" data-action="close">我已联系</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> 老王研究所 · 保留所有权利</small>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,172 @@
+[
+  {
+    "name": "细胞划痕分析",
+    "version": "v1.7.1",
+    "category": "ImageJ 宏",
+    "description": "自动识别划痕区域并计算愈合比例，支持批处理。",
+    "docPath": "1-老王研究所代码合集/1.细胞划痕v1.7.1.docx"
+  },
+  {
+    "name": "WB 蛋白自动分析",
+    "version": "v1.7.2",
+    "category": "ImageJ 宏",
+    "description": "自动条带识别、背景扣除、定量与导出。",
+    "docPath": "1-老王研究所代码合集/2.WB蛋白自动分析v1.7.2.docx"
+  },
+  {
+    "name": "平均荧光强度",
+    "version": "v1.7.1",
+    "category": "ImageJ 宏",
+    "description": "统计区域平均荧光，支持多通道批量。",
+    "docPath": "1-老王研究所代码合集/3.平均荧光强度v1.7.1.docx"
+  },
+  {
+    "name": "单细胞荧光强度",
+    "version": "v1.7.1",
+    "category": "ImageJ 宏",
+    "description": "逐细胞荧光定量与结果表导出。",
+    "docPath": "1-老王研究所代码合集/4.单细胞荧光强度v1.7.1.docx"
+  },
+  {
+    "name": "Transwell 计数",
+    "version": "v1.7.1",
+    "category": "ImageJ 宏",
+    "description": "识别细胞并统计计数，支持阈值与形态学参数。",
+    "docPath": "1-老王研究所代码合集/5.transwell计数v1.7.1.docx"
+  },
+  {
+    "name": "Transwell 面积法",
+    "version": "v1.7.1",
+    "category": "ImageJ 宏",
+    "description": "按面积估计细胞数量或覆盖度。",
+    "docPath": "1-老王研究所代码合集/6.transwell面积法v1.7.1.docx"
+  },
+  {
+    "name": "免疫荧光共定位",
+    "version": "v1.7.1",
+    "category": "ImageJ 宏",
+    "description": "计算通道间共定位指标，支持多图批处理。",
+    "docPath": "1-老王研究所代码合集/7.免疫荧光共定位v1.7.1.docx"
+  },
+  {
+    "name": "单细胞粒径",
+    "version": "v1.7.1",
+    "category": "ImageJ 宏",
+    "description": "检测细胞并统计粒径分布。",
+    "docPath": "1-老王研究所代码合集/8.单细胞粒径v1.7.1.docx"
+  },
+  {
+    "name": "免疫荧光 EDU",
+    "version": "v1.7.1",
+    "category": "ImageJ 宏",
+    "description": "识别 EDU 阳性并统计比例。",
+    "docPath": "1-老王研究所代码合集/9.免疫荧光EDUv1.7.1.docx"
+  },
+  {
+    "name": "单克隆平板计数",
+    "version": "-",
+    "category": "ImageJ 宏",
+    "description": "自动计数平板克隆形成单位。",
+    "docPath": "1-老王研究所代码合集/10.单克隆平板计数.docx"
+  },
+  {
+    "name": "细胞区域荧光强度",
+    "version": "v1.7.1",
+    "category": "ImageJ 宏",
+    "description": "按 ROI 计算区域荧光强度。",
+    "docPath": "1-老王研究所代码合集/11.细胞区域荧光强度v1.7.1.docx"
+  },
+  {
+    "name": "细胞计数（插件版）",
+    "version": "v1.7.1",
+    "category": "ImageJ 插件",
+    "description": "插件化细胞计数流程。",
+    "docPath": "1-老王研究所代码合集/12.细胞计数插件版v1.7.1.docx"
+  },
+  {
+    "name": "免疫组化 AOD 计算",
+    "version": "v1.8.1",
+    "category": "ImageJ 宏",
+    "description": "计算 AOD 指标并批量导出。",
+    "docPath": "1-老王研究所代码合集/13.免疫组化AOD计算v1.8.1.docx"
+  },
+  {
+    "name": "组织面积计算",
+    "version": "v1.8.1",
+    "category": "ImageJ 宏",
+    "description": "自动分割组织并测量面积。",
+    "docPath": "1-老王研究所代码合集/14.组织面积计算v1.8.1.docx"
+  },
+  {
+    "name": "荧光降噪去背景",
+    "version": "v1.8.1",
+    "category": "ImageJ 宏",
+    "description": "滤波、背景扣除与增强。",
+    "docPath": "1-老王研究所代码合集/15.荧光降噪去背景v1.8.1.docx"
+  },
+  {
+    "name": "合并说明",
+    "version": "-",
+    "category": "文档",
+    "description": "功能合并与版本说明。",
+    "docPath": "1-老王研究所代码合集/16.merge代码.docx"
+  },
+  {
+    "name": "免疫组化阳性细胞占比",
+    "version": "-",
+    "category": "ImageJ 宏",
+    "description": "阳性细胞占比统计。",
+    "docPath": "1-老王研究所代码合集/17.免疫组化阳性细胞占比.docx"
+  },
+  {
+    "name": "单细胞 DAPI 中红绿荧光强度",
+    "version": "-",
+    "category": "ImageJ 宏",
+    "description": "单细胞层级多通道强度提取。",
+    "docPath": "1-老王研究所代码合集/18.单细胞dapi中红绿荧光强度.docx"
+  },
+  {
+    "name": "甲苯胺蓝染色面积",
+    "version": "-",
+    "category": "ImageJ 宏",
+    "description": "组织染色面积测定。",
+    "docPath": "1-老王研究所代码合集/19.甲苯胺蓝染色面积.docx"
+  },
+  {
+    "name": "免疫组化 PAS 染色 AOD",
+    "version": "-",
+    "category": "ImageJ 宏",
+    "description": "PAS 染色 AOD 指标。",
+    "docPath": "1-老王研究所代码合集/20.免疫组化PAS染色AOD.docx"
+  },
+  {
+    "name": "粒子面积、计数、直径",
+    "version": "-",
+    "category": "ImageJ 宏",
+    "description": "粒子统计综合工具。",
+    "docPath": "1-老王研究所代码合集/21.粒子面积、计数、直径.docx"
+  },
+  {
+    "name": "肌纤维面积",
+    "version": "-",
+    "category": "ImageJ 宏",
+    "description": "肌纤维截面积测量。",
+    "docPath": "1-老王研究所代码合集/22.肌纤维面积.docx"
+  },
+  {
+    "name": "绿色胞浆中红色核蛋白占比",
+    "version": "-",
+    "category": "ImageJ 宏",
+    "description": "跨通道区分与占比。",
+    "docPath": "1-老王研究所代码合集/23.绿色胞浆中红色核蛋白占比.docx"
+  },
+  {
+    "name": "树叶面积",
+    "version": "-",
+    "category": "ImageJ 宏",
+    "description": "植物叶片面积与尺度校准。",
+    "docPath": "1-老王研究所代码合集/24.树叶面积.docx"
+  }
+]
+
+

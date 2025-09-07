@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>会员专区（已上锁） - 老王研究所</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/images/about/avatar.jpg" alt="老王头像" class="brand-avatar" />
+        <span class="brand-name">老王研究所</span>
+      </div>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="code.html">代码中心</a>
+        <a href="#" class="gated-link" data-href="tutorials.html">教程中心</a>
+        <a href="#" class="gated-link" data-href="software.html">软件中心</a>
+        <a href="#" class="gated-link" data-href="vip.html">会员专区</a>
+        <a href="payment.html">付款说明</a>
+        <a href="about.html">关于老王</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section gated-section">
+      <h2>会员专区（已上锁）</h2>
+      <p class="muted">付费下载宏代码、教程；会员专属答疑和服务。</p>
+      <div class="gate-banner">
+        <strong>访问受限</strong> · 请联系老王开通会员后下载。
+        <button class="btn primary" data-action="contact">联系老王</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="gate-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-action="close"></div>
+    <div class="modal-dialog" role="document">
+      <button class="modal-close" title="关闭" aria-label="关闭" data-action="close">×</button>
+      <h3>访问受限</h3>
+      <p>该内容需要授权/会员权限。请联系作者授权。</p>
+      <ul class="meta-list"><li>微信：imagej_sci</li></ul>
+      <form class="auth-form" onsubmit="return false;">
+        <div class="form-row">
+          <label>机器码（示例：12345-67890）</label>
+          <input id="auth-mc" name="machine" type="text" placeholder="请输入机器码" />
+        </div>
+        <div class="form-row">
+          <label>授权码</label>
+          <input id="auth-lic" name="license" type="text" placeholder="请输入授权码" />
+        </div>
+        <div class="form-row">
+          <button id="auth-verify" class="btn primary" type="button">校验并授权</button>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> 老王研究所 · 保留所有权利</small>
+    </div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
+
+

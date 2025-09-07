@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>机器码/授权辅助 - 老王研究所</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .wrap { max-width: 820px; margin: 28px auto; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .row { display: grid; gap: 6px; margin-top: 10px; }
+    label { color: var(--muted); font-size: 12px; }
+    input[type="text"] { background: #0f1424; border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 8px 10px; }
+    .out { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 16px; letter-spacing: 1px; padding: 10px 12px; background: #0f1424; color: var(--text); border-radius: 8px; user-select: all; border: 1px dashed var(--border); }
+    .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/images/about/avatar.jpg" alt="老王头像" class="brand-avatar" />
+        <span class="brand-name">老王研究所</span>
+      </div>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="code.html">代码中心</a>
+        <a href="#" class="gated-link" data-href="tutorials.html">教程中心</a>
+        <a href="#" class="gated-link" data-href="software.html">软件中心</a>
+        <a href="#" class="gated-link" data-href="vip.html">会员专区</a>
+        <a href="payment.html">付款说明</a>
+        <a href="about.html">关于老王</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container wrap">
+    <div class="card">
+      <h2>机器码 / 授权辅助</h2>
+      <div class="grid-2">
+        <div>
+          <div class="row">
+            <label>ImageJ getDirectory("home")</label>
+            <input id="home" type="text" placeholder="如 C:\\Users\\Alice\\" />
+          </div>
+          <div class="row">
+            <label>ImageJ getVersion()</label>
+            <input id="ver" type="text" placeholder="如 1.54f" />
+          </div>
+          <div class="btns row">
+            <button class="btn primary" id="gen-mc">生成机器码</button>
+            <button class="btn" id="clr">清空</button>
+          </div>
+        </div>
+        <div>
+          <div class="row">
+            <label>机器码（qualityHash1-qualityHash2）</label>
+            <input id="mc" type="text" readonly />
+          </div>
+          <div class="row">
+            <label>授权码（网站复杂规则）</label>
+            <div id="lic" class="out">——</div>
+          </div>
+          <div class="btns row">
+            <button class="btn" id="gen-lic">生成授权码</button>
+            <button class="btn" id="copy-lic">复制授权码</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="gate-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-action="close"></div>
+    <div class="modal-dialog" role="document">
+      <button class="modal-close" title="关闭" aria-label="关闭" data-action="close">×</button>
+      <h3>访问受限</h3>
+      <p>该内容需要授权/会员权限。请联系作者授权。</p>
+      <ul class="meta-list"><li>微信：imagej_sci</li></ul>
+      <form class="auth-form" onsubmit="return false;">
+        <div class="form-row">
+          <label>机器码（只读）</label>
+          <input id="auth-mc" name="machine" type="text" readonly />
+        </div>
+        <div class="form-row">
+          <label>授权码</label>
+          <input id="auth-lic" name="license" type="text" placeholder="请输入授权码" />
+        </div>
+        <div class="form-row">
+          <button id="auth-verify" class="btn primary" type="button">校验并授权</button>
+        </div>
+      </form>
+      <div class="modal-actions">
+        <a class="btn primary" href="#" data-action="close">我已联系</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> 老王研究所 · 保留所有权利</small>
+    </div>
+  </footer>
+  <script>
+    function qualityHashesFromHomeVer(home, ver){
+      const qualityID = String(home||'') + String(ver||'');
+      let h1=0; for(let i=0;i<qualityID.length;i++){ const pv=qualityID.charCodeAt(i); h1+=pv; if(h1>99999) h1-=99999; }
+      let h2=0; const rev=qualityID.split('').reverse().join('');
+      for(let i=0;i<rev.length;i++){ const pv=rev.charCodeAt(i); h2+=pv*3; if(h2>99999) h2-=99999; }
+      return {h1,h2};
+    }
+    function reverseDigits(n){return parseInt(String(Math.abs(n)).split('').reverse().join(''),10)||0}
+    function digitSum(n){return String(Math.abs(n)).split('').reduce((s,d)=>s+(parseInt(d,10)||0),0)}
+    function genLicenseComplexFromMC(mc){
+      const parts=(mc||'').split('-'); if(parts.length!==2) return 'ERROR';
+      const a=parseInt(parts[0],10), b=parseInt(parts[1],10); if(Number.isNaN(a)||Number.isNaN(b)) return 'ERROR';
+      const revA=reverseDigits(a), revB=reverseDigits(b), sumA=digitSum(a), sumB=digitSum(b);
+      const p1=(a*7+12345+revB*3+sumA*97)%1000000;
+      const p2=(b*11+67890+revA*5+sumB*89)%1000000;
+      const p3=((p1^p2)+(a^b))%100000;
+      const pad=(n,w)=>String(Math.abs(n)).padStart(w,'0');
+      return `${pad(p1,6)}-${pad(p2,6)}-${pad(p3,5)}`;
+    }
+    const $=s=>document.querySelector(s);
+    $('#gen-mc').addEventListener('click',()=>{
+      const {h1,h2}=qualityHashesFromHomeVer($('#home').value,$('#ver').value);
+      $('#mc').value = `${h1}-${h2}`;
+      $('#lic').textContent = '——';
+    });
+    $('#gen-lic').addEventListener('click',()=>{
+      const lic=genLicenseComplexFromMC($('#mc').value);
+      $('#lic').textContent = lic;
+    });
+    $('#copy-lic').addEventListener('click', async ()=>{
+      const text=$('#lic').textContent||''; if(!text||text==='——') return;
+      try{ await navigator.clipboard.writeText(text); alert('已复制'); }catch{ alert('复制失败'); }
+    });
+    $('#clr').addEventListener('click',()=>{ $('#home').value=''; $('#ver').value=''; $('#mc').value=''; $('#lic').textContent='——'; });
+  </script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
+
+
